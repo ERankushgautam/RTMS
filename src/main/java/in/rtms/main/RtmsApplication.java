@@ -8,6 +8,7 @@ public class RtmsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RtmsApplication.class, args);
+		System.out.println("started...");
 	}
 
 }
