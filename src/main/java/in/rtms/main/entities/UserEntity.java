@@ -1,5 +1,6 @@
 package in.rtms.main.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,14 +20,16 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	private String username;
 	private String firstName;
 	private String lastName;
 	private Long phoneNumber;
 	private String email;
 	private String password;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "role_id", nullable = false)
 	private RoleEntity role;
+
 }
